@@ -1,0 +1,3 @@
+com.app1,android.permission.ACCESS_FINE_LOCATION,purpose_a,deny
+com.app2,android.permission.READ_CONTACTS,purpose_b,allow
+com.app3,android.permission.RECORD_AUDIO,purpose_c,deny_bg

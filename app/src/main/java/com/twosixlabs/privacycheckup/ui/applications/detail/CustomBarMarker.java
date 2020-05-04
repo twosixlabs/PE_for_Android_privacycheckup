@@ -1,0 +1,76 @@
+/*
+ * Copyright © 2020 by Raytheon BBN Technologies Corp.
+ *
+ * This material is based upon work supported by DARPA and AFRL under Contract No. FA8750-16-C-0006.
+ *
+ * The Government has unlimited rights to use, modify, reproduce, release, perform, display, or
+ * disclose computer software or computer software documentation marked with this legend.
+ * Any reproduction of technical data, computer software, or portions thereof marked with
+ * this legend must also reproduce this marking.
+ *
+ * DISCLAIMER LANGUAGE
+ * THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND ANY EXPRESS
+ * OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY
+ * AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR
+ * CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL
+ * DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
+ * DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY,
+ * WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY
+ * WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License"); you may not use this file except
+ * in compliance with the License.  You may obtain a copy of the License at
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software distributed under the License
+ * is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express
+ * or implied.  See the License for the specific language governing permissions and limitations
+ * under the License.
+ *
+ */
+
+package com.twosixlabs.privacycheckup.ui.applications.detail;
+
+import android.content.Context;
+import android.widget.TextView;
+
+import com.github.mikephil.charting.components.MarkerView;
+import com.github.mikephil.charting.data.BarEntry;
+import com.github.mikephil.charting.data.Entry;
+import com.github.mikephil.charting.highlight.Highlight;
+import com.github.mikephil.charting.utils.MPPointF;
+import com.twosixlabs.privacycheckup.R;
+
+public class CustomBarMarker extends MarkerView {
+    private TextView tvContentFg;
+    private TextView tvContentBg;
+
+    public CustomBarMarker(Context context, int layoutResource) {
+        super(context, layoutResource);
+        // find your layout components
+        tvContentFg = (TextView) findViewById(R.id.tvContentForeground);
+        tvContentBg = (TextView) findViewById(R.id.tvContentBackground);
+    }
+    // callbacks everytime the MarkerView is redrawn, can be used to update the
+    // content (user-interface)
+    @Override
+    public void refreshContent(Entry e, Highlight highlight) {
+//        e.get
+        float[] bg = ((BarEntry) e).getYVals();
+//        tvContent.setText("" + fg + " foreground / " + bg + " background");
+        tvContentFg.setText("foreground: " + (int)bg[0]);
+        tvContentBg.setText("background: " + Math.abs((int)bg[1]));
+//        Log.d(TAG, );
+        // this will perform necessary layouting
+        super.refreshContent(e, highlight);
+    }
+    private MPPointF mOffset;
+    @Override
+    public MPPointF getOffset() {
+        if(mOffset == null) {
+            // center the marker horizontally and vertically
+            mOffset = new MPPointF(-(getWidth() / 2), -getHeight());
+        }
+        return mOffset;
+    }
+}

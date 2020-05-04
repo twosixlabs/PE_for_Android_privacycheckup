@@ -1,0 +1,3 @@
+com.instagram.android,android.permission.ACCESS_FINE_LOCATION,deny
+com.yelp.android,android.permission.READ_CONTACTS,deny
+com.waze,android.permission.RECORD_AUDIO,deny

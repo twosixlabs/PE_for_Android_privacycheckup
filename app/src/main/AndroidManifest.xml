@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    package="com.twosixlabs.privacycheckup">
+
+    <uses-permission android:name="android.permission.VIBRATE" />
+    <uses-permission android:name="android.permission.PACKAGE_USAGE_STATS"
+        tools:ignore="ProtectedPermissions" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+
+    <application
+        android:allowBackup="false"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.AppCompat.Light.NoActionBar">
+        <uses-library android:name="com.twosixlabs.peandroid.privacymanager" />
+
+        <activity
+            android:name="com.twosixlabs.privacycheckup.PolicyActivity"
+            android:label="@string/title_activity_policies"
+            android:theme="@style/PolicyActivityTheme">
+        </activity>
+
+        <activity
+            android:name="com.twosixlabs.privacycheckup.MainTabActivity"
+            android:label="@string/title_activity_main_tab">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <activity android:name="com.twosixlabs.privacycheckup.ui.requests.detail.RequestDetailActivity"></activity>
+        <activity
+            android:name="com.twosixlabs.privacycheckup.ui.applications.detail.ApplicationDetailActivity"
+            android:label="@string/title_activity_application_detail"
+            android:parentActivityName="com.twosixlabs.privacycheckup.MainTabActivity"
+            android:theme="@style/NoActionBar">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.twosixlabs.privacycheckup.MainTabActivity" />
+        </activity>
+
+        <service
+            android:name="com.twosixlabs.privacycheckup.PrivacyCheckupService"
+            android:directBootAware="true"
+            android:enabled="true"
+            android:exported="true"
+            android:permission="android.permission.POLICY_MANAGER_SERVICE">
+            <intent-filter>
+                <action android:name="android.app.action.DEVICE_POLICY_MANAGER_START" />
+            </intent-filter>
+        </service>
+    </application>
+
+</manifest>

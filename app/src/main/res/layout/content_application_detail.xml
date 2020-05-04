@@ -1,0 +1,342 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    * Copyright © 2020 by Raytheon BBN Technologies Corp.
+    *
+    * This material is based upon work supported by DARPA and AFRL under Contract No. FA8750-16-C-0006.
+    *
+    * The Government has unlimited rights to use, modify, reproduce, release, perform, display, or
+    * disclose computer software or computer software documentation marked with this legend.
+    * Any reproduction of technical data, computer software, or portions thereof marked with
+    * this legend must also reproduce this marking.
+    *
+    * DISCLAIMER LANGUAGE
+    * THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND ANY EXPRESS
+    * OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY
+    * AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR
+    * CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL
+    * DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
+    * DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY,
+    * WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY
+    * WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+    *
+    * Licensed under the Apache License, Version 2.0 (the "License"); you may not use this file except
+    * in compliance with the License.  You may obtain a copy of the License at
+    * http://www.apache.org/licenses/LICENSE-2.0
+    *
+    * Unless required by applicable law or agreed to in writing, software distributed under the License
+    * is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express
+    * or implied.  See the License for the specific language governing permissions and limitations
+    * under the License.
+    *
+-->
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:animateLayoutChanges="true"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    tools:context=".ui.applications.detail.ApplicationDetailActivity"
+    tools:showIn="@layout/activity_application_detail"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp">
+
+            <ImageView
+                android:id="@+id/imageView2"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_gravity="center_horizontal"
+                android:layout_weight="1"
+                app:srcCompat="@android:drawable/sym_def_app_icon" />
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/appName"
+                android:layout_width="match_parent"
+                android:layout_height="47dp"
+                android:layout_weight="2"
+                android:fontFamily="sans-serif-condensed"
+                android:gravity="center|center_horizontal"
+                android:text="Application Name"
+                android:textColor="@android:color/primary_text_light"
+                android:textSize="22sp" />
+
+        </TableRow>
+
+        <LinearLayout
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:orientation="horizontal"
+            android:padding="5dp"
+            android:textAlignment="center"
+            android:visibility="visible">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="3dp"
+                android:layout_weight=".28"
+                android:background="@drawable/pill_spinner_bg"
+                android:orientation="horizontal">
+
+                <Spinner
+                    android:id="@+id/spinnerTimeSelectOld"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_gravity="center"
+                    android:layout_marginLeft="5dp"
+                    android:background="@android:color/transparent"
+                    android:entries="@android:array/emailAddressTypes"
+                    android:gravity="center"
+                    android:spinnerMode="dropdown" />
+
+                <ImageView
+                    android:layout_width="30dp"
+                    android:layout_height="31dp"
+                    android:layout_alignParentRight="true"
+                    android:layout_gravity="center"
+                    android:layout_marginRight="7dp"
+                    android:alpha="50"
+                    android:src="@drawable/baseline_arrow_drop_down_black_18dp" />
+
+            </RelativeLayout>
+        </LinearLayout>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:padding="10dp">
+
+            <TextView
+                android:id="@+id/textViewTimeInfo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="sans-serif-condensed"
+                android:text="Monday, March 23"
+                android:textColor="@android:color/primary_text_light"
+                android:textSize="18sp" />
+
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center|center_horizontal|center_vertical"
+            android:paddingBottom="10dp">
+
+            <TextView
+                android:id="@+id/textViewHighlightDetailTime"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="sans-serif-condensed-medium"
+                android:textColor="@android:color/primary_text_light"
+                android:textSize="14sp" />
+
+            <TextView
+                android:id="@+id/textViewRemoveHighlight"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingLeft="5dp"
+                android:paddingRight="5dp"
+                android:text="X"
+                android:textSize="18sp" />
+        </TableRow>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/lighter_gray" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:id="@+id/relative1"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:paddingLeft="5dp"
+                android:paddingTop="5dp"
+                android:paddingRight="5dp"
+                android:paddingBottom="0dp">
+
+                <TextView
+                    android:id="@+id/TextView01"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:fontFamily="sans-serif-condensed"
+                    android:gravity="center_horizontal"
+                    android:text="Total"
+                    android:textColor="@android:color/black"
+                    android:textSize="14sp"></TextView>
+
+                <TextView
+                    android:id="@+id/TextView02"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentLeft="true"
+                    android:layout_weight="1"
+                    android:fontFamily="sans-serif-condensed"
+                    android:gravity="center_horizontal"
+                    android:text="Foreground"
+                    android:textColor="#000000"
+                    android:textSize="14sp"></TextView>
+
+                <TextView
+                    android:id="@+id/TextView03"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_weight="1"
+                    android:fontFamily="sans-serif-condensed"
+                    android:gravity="center_horizontal"
+                    android:text="Background"
+                    android:textColor="#000000"
+                    android:textSize="14sp"></TextView>
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/relative2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="horizontal"
+                android:padding="5dp"
+                android:paddingTop="0dp">
+
+                <TextView
+                    android:id="@+id/textViewTotalRequests"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:fontFamily="sans-serif-condensed"
+                    android:gravity="center_horizontal"
+                    android:text="123"
+                    android:textColor="@android:color/black"
+                    android:textSize="20sp"></TextView>
+
+                <TextView
+                    android:id="@+id/textViewForegroundRequests"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentLeft="true"
+                    android:layout_weight="1"
+                    android:fontFamily="sans-serif-condensed"
+                    android:gravity="center_horizontal"
+                    android:text="456"
+                    android:textColor="#000000"
+                    android:textSize="20sp"></TextView>
+
+                <TextView
+                    android:id="@+id/textViewBackgroundRequests"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_weight="1"
+                    android:fontFamily="sans-serif-condensed"
+                    android:gravity="center_horizontal"
+                    android:text="789"
+                    android:textColor="#000000"
+                    android:textSize="20sp"></TextView>
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <View
+            android:id="@+id/view"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/lighter_gray" />
+
+        <androidx.core.widget.NestedScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:fillViewport="true">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="350dp"
+                    android:layout_weight="1">
+
+                    <com.github.mikephil.charting.charts.BarChart
+                        android:id="@+id/barchart"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_weight="3">
+
+                    </com.github.mikephil.charting.charts.BarChart>
+                </TableRow>
+
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1">
+
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/recycler_view_requests"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_weight="4" />
+                </TableRow>
+
+            </LinearLayout>
+        </androidx.core.widget.NestedScrollView>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/lighter_gray"
+            android:paddingLeft="5dp"
+            android:paddingRight="5dp">
+
+            <Button
+                android:id="@+id/buttonSelectSort2"
+                style="@android:style/Widget.Material.Light.Button.Borderless.Small"
+                android:layout_width="92dp"
+                android:layout_height="40dp"
+                android:layout_centerHorizontal="true"
+                android:drawableRight="@drawable/ic_filter_list_black_24dp"
+                android:text="Filter"
+                android:textAllCaps="false"
+                android:visibility="gone" />
+
+            <Button
+                android:id="@+id/buttonSelectSort"
+                style="@android:style/Widget.Material.Light.Button.Borderless.Small"
+                android:layout_width="92dp"
+                android:layout_height="40dp"
+                android:layout_alignParentRight="true"
+                android:drawableRight="@drawable/ic_sort_black_24dp"
+                android:text="Sort"
+                android:textAllCaps="false"
+                android:visibility="invisible" />
+        </RelativeLayout>
+
+    </LinearLayout>
+
+</RelativeLayout>

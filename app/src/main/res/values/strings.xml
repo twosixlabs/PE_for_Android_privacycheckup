@@ -1,0 +1,27 @@
+<resources>
+    <string name="app_name">Privacy Checkup</string>
+
+    <!-- Menu actions -->
+    <string name="action_trigger"> Trigger notification</string>
+    <string name="action_add"> Add Policy </string>
+    <string name="action_add_pal"> Add μPAL Policy</string>
+    <string name="action_import_policy"> Import test policies </string>
+    <string name="action_dump_db"> Dump database </string>
+
+    <string name="policy_list_title"> App policies </string>
+    <string name="error_title"> Error - service is not running </string>
+    <string name="error_message"> Make sure it is selected as the current policy manager in PE Android settings </string>
+    <string name="dialog_add_policy"> Add policy </string>
+    <string name="dialog_add_pal_policy"> Add μPAL policy </string>
+    <string name="add"> Add </string>
+    <string name="cancel"> Cancel </string>
+    <string name="title_activity_main_tab">Privacy Checkup</string>
+    <string name="title_activity_policies">Manage Policies</string>
+    <string name="tab_text_1">Applications</string>
+    <string name="tab_text_2">Requests</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="title_activity_application_detail">ApplicationDetailActivity</string>
+
+</resources>
