@@ -3,10 +3,10 @@ apply plugin: 'com.android.application'
 android {
     signingConfigs {
         PAL_config {
-            keyAlias 'pal'
-            keyPassword 'android'
+            keyAlias 'peandroid'
+            keyPassword 'peandroid'
             storeFile file('PE_for_Android.keystore')
-            storePassword 'android'
+            storePassword 'peandroid'
         }
     }
     compileSdkVersion 'Two Six Labs:PE for Android:28'
